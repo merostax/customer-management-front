@@ -1,0 +1,40 @@
+.dashboard-container {
+    padding: 20px;
+  }
+  
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .dashboard-item {
+    background: #86aada;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform .2s
+  }
+  .dashboard-item:hover {
+    transform: scale(1.05); 
+  }
+  .dashboard-item img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+  
+  .dashboard-item h2 {
+    margin: 10px 0;
+  }
+  
+  .dashboard-item p {
+    margin: 10px 0;
+  }
+  
+  .dashboard-item button {
+    margin-top: 10px;
+  }
+  

@@ -1,0 +1,32 @@
+<div>
+    <h1>Add Customer</h1>
+    <form [formGroup]="customerForm" (ngSubmit)="onSubmit()" class="form-container">
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstName">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Address ID</mat-label>
+        <input matInput formControlName="addressId">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Store ID</mat-label>
+        <input matInput formControlName="storeId">
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit" class="submit-button">Submit</button>
+    </form>
+  </div>
+  
