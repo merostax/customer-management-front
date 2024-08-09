@@ -59,12 +59,14 @@ export class CustomerFormComponent implements OnInit {
       });
     }
   }
-
+//KISS (Keep It Simple, Stupid)
+//DRY (Don't Repeat Yourself)
+//YAGNI (You Aren't Gonna Need It)
   onSubmit(): void {
     if (this.customerForm.valid) {
       const customer: Partial<CustomerDTO> = this.customerForm.value;
-      const addressId = this.customerForm.value.addressId || 0; // Use 0 or a default value if undefined
-      const storeId = this.customerForm.value.storeId || 0; // Use 0 or a default value if undefined
+      const addressId = this.customerForm.value.addressId || 0; 
+      const storeId = this.customerForm.value.storeId || 0; 
 
       if (this.customerId) {
         this.customerService.updateCustomer({ ...customer, id: this.customerId }).subscribe({
@@ -92,3 +94,43 @@ export class CustomerFormComponent implements OnInit {
     }
   }
 }
+/* onSubmit(): void {
+    if (this.customerForm.valid) {
+      const customer: Partial<CustomerDTO> = this.customerForm.value;
+      const addressId = this.customerForm.value.addressId || 0;
+      const storeId = this.customerForm.value.storeId || 0;
+
+      if (this.customerId) {
+        this.updateCustomer({ ...customer, id: this.customerId });
+      } else {
+        this.createCustomer(customer, addressId, storeId);
+      }
+    }
+  }
+
+  private updateCustomer(customer: Partial<CustomerDTO>): void {
+    this.customerService.updateCustomer(customer).subscribe({
+      next: () => {
+        this.snackBar.open('Customer updated successfully', 'Close', { duration: 2000 });
+        this.router.navigate(['/customers']);
+      },
+      error: (err) => {
+        console.error(err);
+        this.snackBar.open(`Error updating customer: ${err.error.message}`, 'Close', { duration: 2000 });
+      },
+    });
+  }
+
+  private createCustomer(customer: Partial<CustomerDTO>, addressId: number, storeId: number): void {
+    this.customerService.createCustomer(customer, addressId, storeId).subscribe({
+      next: (response) => {
+        this.snackBar.open(response, 'Close', { duration: 2000 });
+        this.router.navigate(['/customers']);
+      },
+      error: (err) => {
+        console.error(err);
+        this.snackBar.open(`Error creating customer: ${err.error.message}`, 'Close', { duration: 2000 });
+      },
+    });
+  }
+}*/
