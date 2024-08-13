@@ -41,35 +41,16 @@
     "jest-preset-angular": "^14.2.2",
     "typescript": "~5.4.2"
   },
-  "jest": {
+ "jest": {
     "preset": "jest-preset-angular",
     "setupFilesAfterEnv": [
-      "<rootDir>/setup-jest.ts"
+      "<rootDir>/src/setup-jest.ts"
     ],
-    "testEnvironment": "jsdom",
-    "globals": {
-      "ts-jest": {
-        "tsconfig": "tsconfig.spec.json",
-        "stringifyContentPathRegex": "\\.html$",
-        "isolatedModules": true
-      }
-    },
-    "transform": {
-      "^.+\\.(ts|js|html)$": "ts-jest"
-    },
-    "moduleNameMapper": {
-      "^@app/(.*)$": "<rootDir>/src/app/$1",
-      "^@environments/(.*)$": "<rootDir>/src/environments/$1"
-    },
-    "moduleFileExtensions": [
-      "ts",
-      "html",
-      "js",
-      "json"
-    ],
-    "snapshotSerializers": [
-      "jest-preset-angular/build/AngularSnapshotSerializer.js",
-      "jest-preset-angular/build/HTMLCommentSerializer.js"
+    "globalSetup": "jest-preset-angular/global-setup",
+    "modulePathIgnorePatterns": [
+      "<rootDir>/node_modules/"
     ]
-  }
+}
+
+
 }

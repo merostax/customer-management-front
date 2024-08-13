@@ -1,0 +1,17 @@
+//edit the script with this
+"scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+},
+// add this to package.json
+jest :{
+ "preset": "jest-preset-angular",
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setup-jest.ts"
+    ],
+    "globalSetup": "jest-preset-angular/global-setup",
+    "modulePathIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ]
+}
