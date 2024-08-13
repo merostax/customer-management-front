@@ -8,7 +8,7 @@ describe('Contact class tests', () => {
     contact = new ContactClass();
   });
   it('should have a valid constructor', () => {
-    //Tests the contact not to be null
+  //Tests the contact not to be null
     expect(contact).not.toBeNull();
   });
   afterEach(() => {
