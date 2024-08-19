@@ -5,16 +5,15 @@ describe('ComponentName', () => {
   //--------------
   //-------------
   //-----------------
-  let c: number;
   
   beforeEach(() => {
+    // optional 
     'preparing the test'
     //...initTestInviromnent()
   });
 
   beforeEach(() => {
     'initialization'
-    c = 1;
   });
 
   afterEach(() => {
@@ -25,26 +24,24 @@ describe('ComponentName', () => {
 
   describe('firstFunction', () => {
     //further declaring variable for only the firstfunction
-    let a = 5;
-    it('should return true', () => {
-      expect(a * 4).toBe(20);
+    it('should work', () => {
+      //code
     });
 
     it('should fail', () => {
-      expect(c * 4).not.toBe(12);
+       //code
     });
   });
 
 
   describe('SecondFunction', () => {
     //further declaring variable for only the secondfunction
-    let a = 3;
-    it('should return true', () => {
-      expect(a * 4).toBe(12);
+    it('should work', () => {
+       //code
     });
 
     it('should fail', () => {
-      expect(c * 4).not.toBe(12);
+       //code
     });
 
   });

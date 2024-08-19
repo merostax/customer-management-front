@@ -4,7 +4,7 @@ import { CustomerService } from '../../services/customer.service';
 import { AddressService } from '../../services/address.service';
 import { of } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import {  RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DebugElement } from '@angular/core';
@@ -18,11 +18,11 @@ describe('DashboardComponent', () => {
   let addressServiceSpy: any;
   beforeEach(async () => {
     customerServiceSpy = {
-      getCustomerCount: jest.fn().mockReturnValue(of(0)), 
+      getCustomerCount: jest.fn().mockReturnValue(of(0)),
     };
 
     addressServiceSpy = {
-      getAddressCount: jest.fn().mockReturnValue(of(0)),  
+      getAddressCount: jest.fn().mockReturnValue(of(0)),
     };
 
     await TestBed.configureTestingModule({
@@ -43,15 +43,15 @@ describe('DashboardComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(DashboardComponent);
     component = fixture.componentInstance;
-    rootElement=fixture.debugElement;
+    rootElement = fixture.debugElement;
     fixture.detectChanges();
   });
 
   it('init component', () => {
     expect(component).toBeTruthy();
   });
-// no need for fakeasync since of emiting value immediately
-  it('should fetch customers and addressess count ', fakeAsync(() => {
+  // no need for fakeasync since of emiting value immediately
+  it('should fetch customers and addressess , should get totalvalue correct ', fakeAsync(() => {
     const mockCustomerCount = 10;
     const mockAddressCount = 20;
 

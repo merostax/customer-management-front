@@ -68,8 +68,8 @@ describe('CustomerListComponent', () => {
       customerServiceSpy.getCustomerCount.mockReturnValue(of(1));
 
       component.ngOnInit();
-      fixture.detectChanges();
 
+      fixture.detectChanges();
       expect(customerServiceSpy.listCustomers).toHaveBeenCalledWith(1);
       expect(customerServiceSpy.getCustomerCount).toHaveBeenCalled();
       expect(component.customers.length).toBe(1);
@@ -86,18 +86,17 @@ describe('CustomerListComponent', () => {
     });
   });
 
-  
+
   describe('test handlePageEvent', () => {
 
     it('it should update page and fetch', () => {
-      const pageEvent = { pageIndex: 1, pageSize: 10 } as PageEvent;
-      const fetchCustomersSpy = jest.spyOn(component, 'fetchCustomers');
-
+      const pageEvent = { pageIndex: 1, pageSize: 20 } as PageEvent;
+      const fetchCustomersSpy = jest.spyOn(component,'fetchCustomers');
       component.handlePageEvent(pageEvent);
       fixture.detectChanges();
 
       expect(component.currentPage).toBe(2);
-      expect(component.pageSize).toBe(10);
+      expect(component.pageSize).toBe(20);
       expect(fetchCustomersSpy).toHaveBeenCalledWith(2);
     });
   })

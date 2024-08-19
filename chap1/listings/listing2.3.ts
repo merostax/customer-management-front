@@ -13,14 +13,16 @@ describe('DashboardComponent', () => {
     let component: DashboardComponent;
     let fixture: ComponentFixture<DashboardComponent>;
     let rootElement: DebugElement
+
     let customerServiceSpy: any;
     let addressServiceSpy: any;
+    // WE MOCK SERVICES
+    // MENTION DIFFERENT WAY TO MOCK A SERVICE
 
     beforeEach(async () => {
         customerServiceSpy = {
             getCustomerCount: jest.fn().mockReturnValue(of(0)),
         };
-
         addressServiceSpy = {
             getAddressCount: jest.fn().mockReturnValue(of(0)),
         };
@@ -34,7 +36,7 @@ describe('DashboardComponent', () => {
                 MatSnackBarModule,
             ],
             providers: [
-                { provide: CustomerService, useValue: customerServiceSpy },
+                { provide: CustomerService, useClass: customerServiceSpy },
                 { provide: AddressService, useValue: addressServiceSpy },
             ],
         }).compileComponents();
@@ -46,7 +48,10 @@ describe('DashboardComponent', () => {
         rootElement = fixture.debugElement;
         fixture.detectChanges();
     });
-    it('init component', () => {
-        expect(component).toBeTruthy();
-      });
+
+    describe("init test", () => {
+        it('component testing ', () => {
+            expect(component).toBeTruthy();
+        });
+    })
 });

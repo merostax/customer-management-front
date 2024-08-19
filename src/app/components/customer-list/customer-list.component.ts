@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {  Router, RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { CustomerService } from '../../services/customer.service';
 import { MatButtonModule } from '@angular/material/button';
@@ -27,10 +27,10 @@ export class CustomerListComponent implements OnInit {
   customers: any[] = [];
   displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email', 'store', 'address', 'actions'];
   totalCustomers: number = 0;
-  pageSize: number = 10;
+  pageSize: number = 20;
   currentPage: number = 1;
 
-  constructor(private customerService: CustomerService, private snackBar: MatSnackBar,private router: Router) {}
+  constructor(private customerService: CustomerService, private snackBar: MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
     this.fetchCustomers(this.currentPage);
@@ -41,15 +41,15 @@ export class CustomerListComponent implements OnInit {
     this.customerService.listCustomers(page).subscribe({
       next: (data) => {
         this.customers = data;
-        console.log('Fetched customers:', data); 
+        console.log('Fetched customers:', data);
       },
       error: (err) => {
-        console.error('Error fetching customers:', err); 
+        console.error('Error fetching customers:', err);
         this.snackBar.open('Error fetching customers', 'Close', { duration: 2000 });
       },
     });
   }
-  
+
 
   getCustomerCount() {
     this.customerService.getCustomerCount().subscribe({
