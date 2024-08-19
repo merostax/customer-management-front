@@ -17,33 +17,36 @@ describe('DashboardComponent', () => {
     let addressServiceSpy: any;
 
     beforeEach(async () => {
-      customerServiceSpy = {
-        getCustomerCount: jest.fn().mockReturnValue(of(0)), 
-      };
-  
-      addressServiceSpy = {
-        getAddressCount: jest.fn().mockReturnValue(of(0)),  
-      };
-  
-      await TestBed.configureTestingModule({
-        imports: [
-          DashboardComponent,
-          CommonModule,
-          RouterModule.forRoot([]),
-          MatButtonModule,
-          MatSnackBarModule,
-        ],
-        providers: [
-          { provide: CustomerService, useValue: customerServiceSpy },
-          { provide: AddressService, useValue: addressServiceSpy },
-        ],
-      }).compileComponents();
+        customerServiceSpy = {
+            getCustomerCount: jest.fn().mockReturnValue(of(0)),
+        };
+
+        addressServiceSpy = {
+            getAddressCount: jest.fn().mockReturnValue(of(0)),
+        };
+
+        await TestBed.configureTestingModule({
+            imports: [
+                DashboardComponent,
+                CommonModule,
+                RouterModule.forRoot([]),
+                MatButtonModule,
+                MatSnackBarModule,
+            ],
+            providers: [
+                { provide: CustomerService, useValue: customerServiceSpy },
+                { provide: AddressService, useValue: addressServiceSpy },
+            ],
+        }).compileComponents();
     });
-    
+
     beforeEach(() => {
         fixture = TestBed.createComponent(DashboardComponent);
         component = fixture.componentInstance;
-        rootElement=fixture.debugElement;
+        rootElement = fixture.debugElement;
         fixture.detectChanges();
+    });
+    it('init component', () => {
+        expect(component).toBeTruthy();
       });
 });

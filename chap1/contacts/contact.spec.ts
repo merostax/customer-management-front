@@ -11,12 +11,13 @@ describe('Contact class tests', () => {
   afterEach(() => {
     contact = null;
   });
-describe('constructor testing',()=>{
+describe('constructor init',()=>{
   it('should have a valid constructor', () => {
     expect(contact).toBeTruthy;
   });
   it('should not have a valid constructor', () => {
-    //--------------
+    contact = null;
+    expect(contact).toBeNull;
   });
 });
 
@@ -34,17 +35,20 @@ describe('id property tests', () => {
 
 
 describe('name property tests', () => {
+
   it('should set name correctly through constructor', () => {
     contact = new ContactClass('barthauer');
     expect(contact.name).toEqual('barthauer');
   });
   it('should get and set name correctly', () => {
-    expect(contact!.name).toBeUndefined;
-  });
-  it('should get and set name correctly', () => {
     contact!.name = 'barthauer';
     expect(contact!.name).toEqual('barthauer');
   });
+  it('should get default name', () => {
+    expect(contact!.name).toBeDefined;
+    expect(contact!.name).toEqual("default name");
+  });
+ 
 });
 
 

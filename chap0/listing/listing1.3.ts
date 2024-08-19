@@ -1,11 +1,12 @@
 //imports x from z
 
 describe('ComponentName', () => {
-  // declaring :
+  // declaration :
   //--------------
   //-------------
   //-----------------
-  let c: any;
+  let c: number;
+  
   beforeEach(() => {
     'preparing the test'
     //...initTestInviromnent()
