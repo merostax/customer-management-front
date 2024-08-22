@@ -59,42 +59,11 @@ export class CustomerFormComponent implements OnInit {
       });
     }
   }
-//KISS (Keep It Simple, Stupid)
-//DRY (Don't Repeat Yourself)
-//YAGNI (You Aren't Gonna Need It)
-  onSubmit(): void {
-    if (this.customerForm.valid) {
-      const customer: Partial<CustomerDTO> = this.customerForm.value;
-      const addressId = this.customerForm.value.addressId || 0; 
-      const storeId = this.customerForm.value.storeId || 0; 
+  //KISS (Keep It Simple, Stupid)
+  //DRY (Don't Repeat Yourself)
+  //YAGNI (You Aren't Gonna Need It)
 
-      if (this.customerId) {
-        this.customerService.updateCustomer({ ...customer, id: this.customerId }).subscribe({
-          next: () => {
-            this.snackBar.open('Customer updated successfully', 'Close', { duration: 2000 });
-            this.router.navigate(['/customers']);
-          },
-          error: (err) => {
-            console.error(err);
-            this.snackBar.open(`Error updating customer: ${err.error.message}`, 'Close', { duration: 2000 });
-          },
-        });
-      } else {
-        this.customerService.createCustomer(customer, addressId, storeId).subscribe({
-          next: (response) => {
-            this.snackBar.open(response, 'Close', { duration: 2000 });
-            this.router.navigate(['/customers']);
-          },
-          error: (err) => {
-            console.error(err);
-            this.snackBar.open(`Error creating customer: ${err.error.message}`, 'Close', { duration: 2000 });
-          },
-        });
-      }
-    }
-  }
-}
-/* onSubmit(): void {
+  onSubmit(): void {
     if (this.customerForm.valid) {
       const customer: Partial<CustomerDTO> = this.customerForm.value;
       const addressId = this.customerForm.value.addressId || 0;
@@ -133,4 +102,4 @@ export class CustomerFormComponent implements OnInit {
       },
     });
   }
-}*/
+}

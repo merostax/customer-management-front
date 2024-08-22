@@ -5,7 +5,7 @@ describe('ComponentName', () => {
   //--------------
   //-------------
   //-----------------
-  
+
   beforeEach(() => {
     // optional 
     'preparing the test'
@@ -18,9 +18,8 @@ describe('ComponentName', () => {
 
   afterEach(() => {
     'cleaningUp '
-    c = 0;
   });
-// question: if we have beforeEach why should we do the aftereach ?
+  // question: if we have beforeEach why should we do the aftereach ?
 
   describe('firstFunction', () => {
     //further declaring variable for only the firstfunction
@@ -29,7 +28,7 @@ describe('ComponentName', () => {
     });
 
     it('should fail', () => {
-       //code
+      //code
     });
   });
 
@@ -37,11 +36,11 @@ describe('ComponentName', () => {
   describe('SecondFunction', () => {
     //further declaring variable for only the secondfunction
     it('should work', () => {
-       //code
+      //code
     });
 
     it('should fail', () => {
-       //code
+      //code
     });
 
   });
