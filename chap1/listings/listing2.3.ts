@@ -36,7 +36,7 @@ describe('DashboardComponent', () => {
                 MatSnackBarModule,
             ],
             providers: [
-                { provide: CustomerService, useClass: customerServiceSpy },
+                { provide: CustomerService, useValue: customerServiceSpy },
                 { provide: AddressService, useValue: addressServiceSpy },
             ],
         }).compileComponents();

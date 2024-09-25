@@ -86,6 +86,7 @@ describe('CustomerFormComponent', () => {
             component.ngOnInit();
             fixture.detectChanges();
 
+            expect(customerServiceSpy.getCustomerById).toHaveBeenCalled();
             expect(customerServiceSpy.getCustomerById).toHaveBeenCalledWith(mockCustomer.id);
             expect(component.customerForm.value).toEqual({
                 firstName: 'kt',

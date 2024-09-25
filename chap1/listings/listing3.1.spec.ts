@@ -22,8 +22,8 @@ describe('CustomerFormComponent', () => {
   beforeEach(async () => {
     customerServiceSpy = {
       getCustomerById: jest.fn(),
-      updateCustomer: jest.fn().mockReturnValue(of({})),
-      createCustomer: jest.fn().mockReturnValue(of({})),
+      updateCustomer: jest.fn(),
+      createCustomer: jest.fn(),
     };
 
     snackBarSpy = {
@@ -44,7 +44,6 @@ describe('CustomerFormComponent', () => {
 
     await TestBed.configureTestingModule({
       imports: [
-        ReactiveFormsModule,
         CustomerFormComponent,
         NoopAnimationsModule
       ],
@@ -57,13 +56,13 @@ describe('CustomerFormComponent', () => {
       ],
     }).compileComponents();
   });
-
   beforeEach(() => {
     fixture = TestBed.createComponent(CustomerFormComponent);
     component = fixture.componentInstance;
     rootElement = fixture.debugElement;
     fixture.detectChanges();
   });
+  
   describe('init', () => {
     it('should create the component', () => {
       expect(component).toBeTruthy();

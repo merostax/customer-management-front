@@ -39,7 +39,8 @@ describe('CustomerListComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         CustomerListComponent,
-        NoopAnimationsModule
+        NoopAnimationsModule,
+
       ],
       providers: [
         { provide: CustomerService, useValue: customerServiceSpy },
@@ -67,7 +68,9 @@ describe('CustomerListComponent', () => {
       customerServiceSpy.listCustomers.mockReturnValue(of([{ id: 1, firstName: 'kt', lastName: 'the', email: 'kt.the@barthauer.de' }]));
       customerServiceSpy.getCustomerCount.mockReturnValue(of(1));
 
+
       component.ngOnInit();
+
 
       fixture.detectChanges();
       expect(customerServiceSpy.listCustomers).toHaveBeenCalledWith(1);
@@ -84,6 +87,7 @@ describe('CustomerListComponent', () => {
       component.editCustomer(customerId);
       expect(routerSpy.navigate).toHaveBeenCalledWith([`/edit-customer/${customerId}`]);
     });
+
   });
 
 
@@ -91,7 +95,9 @@ describe('CustomerListComponent', () => {
 
     it('it should update page and fetch', () => {
       const pageEvent = { pageIndex: 1, pageSize: 20 } as PageEvent;
-      const fetchCustomersSpy = jest.spyOn(component,'fetchCustomers');
+      const fetchCustomersSpy = jest.spyOn(component, 'fetchCustomers');
+
+
       component.handlePageEvent(pageEvent);
       fixture.detectChanges();
 

@@ -50,6 +50,11 @@ describe('DashboardComponent', () => {
   it('init component', () => {
     expect(component).toBeTruthy();
   });
+
+
+
+
+
   // no need for fakeasync since of emiting value immediately
   it('should fetch customers and addressess , should get totalvalue correct ', fakeAsync(() => {
     const mockCustomerCount = 10;
@@ -65,6 +70,7 @@ describe('DashboardComponent', () => {
     expect(component.totalCustomers).toBe(mockCustomerCount);
     expect(component.totalAddresses).toBe(mockAddressCount);
   }));
+
   it('it should have inital value of 0 for totalcustomer,totaladdresses', () => {
     const customerElement: DebugElement = rootElement.query(By.css('#total-customers'));
     const addressElement: DebugElement = rootElement.query(By.css('#total-addresses'));

@@ -12,7 +12,6 @@ import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
   selector: 'app-customer-list',
   standalone: true,
   imports: [
-    CommonModule,
     RouterModule,
     MatButtonModule,
     MatTableModule,

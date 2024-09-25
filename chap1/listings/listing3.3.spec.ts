@@ -98,22 +98,26 @@ describe('CustomerFormComponent', () => {
         });
     });
     describe(' test createcustomer', () => {
-        it('should call createCustomer if customerId not present ', () => {
-            const mockCustomer: Partial<CustomerDTO> = {
-                firstName: 'kt',
-                lastName: 'the',
-                email: 'kt.the@barthauer.com',
-                addressId: 123,
-                storeId: 456,
-            };
+        const mockCustomer: Partial<CustomerDTO> = {
+            firstName: 'kt',
+            lastName: 'the',
+            email: 'kt.the@barthauer.com',
+            addressId: 123,
+            storeId: 456,
+        };
 
+        it('should call createCustomer if customerId not present ', () => {
             customerServiceSpy.createCustomer.mockReturnValue(of('Customer created successfully'));
             component.customerForm.patchValue(mockCustomer);
+
             component.onSubmit();
 
             expect(customerServiceSpy.createCustomer).toHaveBeenCalledWith(mockCustomer, 123, 456);
             expect(routerSpy.navigate).toHaveBeenCalledWith(['/customers']);
         });
+
+
+        
         it('should call createCustomer if customerId is not present', () => {
             const createCustomerSpy = jest.spyOn((component as any), 'createCustomer');
             component.customerId = null; // Simulate no customerid
