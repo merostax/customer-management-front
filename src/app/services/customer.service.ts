@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
 import { CustomerDTO } from '../models/customer-dto';
+import { PaymentService } from './payment.service';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,7 @@ import { CustomerDTO } from '../models/customer-dto';
 export class CustomerService {
   private apiUrl = 'http://localhost:8083/customers';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private paymentService: PaymentService) { }
 
   listCustomers(page: number): Observable<CustomerDTO[]> {
     return this.http.get<CustomerDTO[]>(`${this.apiUrl}?page=${page}`).pipe(
@@ -54,9 +55,14 @@ export class CustomerService {
       catchError(this.handleError)
     );
   }
-
+  getPaymentsForCustomer2(id: number): Observable<any> {
+    return this.paymentService.getPayments(id); // using paymentService
+  }
   private handleError(error: HttpErrorResponse) {
     console.error('An error occurred:', error);
     return throwError(error);
   }
+
+
+
 }

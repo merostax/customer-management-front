@@ -141,7 +141,6 @@ describe('CustomerFormComponent', () => {
       id: 1,
     });
   });
-np
   it('should call createCustomer if customerId is not present', () => {
     const createCustomerSpy = jest.spyOn((component as any), 'createCustomer');
     component.customerId = null; // Simulate no customerid
