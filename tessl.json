@@ -1,0 +1,44 @@
+{
+  "name": "project",
+  "dependencies": {
+    "tessl/npm-angular--animations": {
+      "version": "21.0.0"
+    },
+    "tessl/npm-angular--cdk": {
+      "version": "20.2.0"
+    },
+    "tessl/npm-angular--common": {
+      "version": "16.2.0"
+    },
+    "tessl/npm-angular--core": {
+      "version": "20.2.0"
+    },
+    "tessl/npm-angular--material": {
+      "version": "21.0.0"
+    },
+    "tessl/npm-angular--platform-browser": {
+      "version": "20.2.0"
+    },
+    "tessl/npm-angular--router": {
+      "version": "20.2.0"
+    },
+    "tessl/npm-express": {
+      "version": "4.21.0"
+    },
+    "tessl/npm-rxjs": {
+      "version": "7.8.0"
+    },
+    "tessl/npm-zone-js": {
+      "version": "0.15.0"
+    },
+    "tessl/npm-angular": {
+      "version": "20.2.0"
+    },
+    "tessl-labs/playwright-testing": {
+      "version": "0.1.3"
+    },
+    "product-factory/security": {
+      "version": "0.2.0"
+    }
+  }
+}

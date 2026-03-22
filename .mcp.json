@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "tessl": {
+      "type": "stdio",
+      "command": "wsl",
+      "args": [
+        "-d", "Ubuntu",
+        "--",
+        "/home/merostax/.local/bin/tessl",
+        "mcp",
+        "start"
+      ]
+    }
+  }
+}

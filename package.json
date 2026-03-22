@@ -9,7 +9,17 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "serve:ssr:customer-management-front": "node dist/customer-management-front/server/server.mjs"
+    "serve:ssr:customer-management-front": "node dist/customer-management-front/server/server.mjs",
+    "test:security": "playwright test tests/security.spec.ts",
+    "test:security:ui": "playwright test tests/security.spec.ts --ui",
+    "test:security:debug": "playwright test tests/security.spec.ts --debug",
+    "test:security:xss": "playwright test tests/security.spec.ts -g 'XSS'",
+    "test:security:validation": "playwright test tests/security.spec.ts -g 'Form Validation'",
+    "test:security:auth": "playwright test tests/security.spec.ts -g 'Authentication'",
+    "test:security:csrf": "playwright test tests/security.spec.ts -g 'CSRF'",
+    "test:security:headers": "playwright test tests/security.spec.ts -g 'HTTP Security'",
+    "test:security:idor": "playwright test tests/security.spec.ts -g 'IDOR'",
+    "test:security:report": "playwright show-report"
   },
   "private": true,
   "dependencies": {
